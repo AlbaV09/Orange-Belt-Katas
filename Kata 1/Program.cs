@@ -1,5 +1,4 @@
 ﻿namespace Kata_1;
-
 public class Character
 {   
     public string Name { get; private set; }
@@ -34,7 +33,6 @@ public class Program
             new Character("Mira", 70, "Healer", null)
         };
             var healer = characters.FirstOrDefault(c => c.Role == "Healer");
-            //var warrior = characters.FirstOrDefault(c => c.Role == "Warrior");
             if (healer != null) 
             {
                 healer.PrimaryAction = () =>
@@ -73,7 +71,6 @@ public class Program
                 character.PrimaryAction?.Invoke();
                 Console.WriteLine();
             });
-        
     }
 
     public static void Main(string[] args)
@@ -81,39 +78,4 @@ public class Program
         Program program = new Program();
         program.Players();
     }
-    
 }
-
-
-/*
-    character => character.Health < 50
-        
-    // Equivalent to Action<Character, int>.
-// An Action accepts parameters but has no return type.
-    Action <string, int>(target, damage) => {
-        Console.WriteLine($"{target.Name} suffered {damage} damage.");
-    }
-
-// Equivalent to Func<Character, bool>.
-// In a Func, the last parameter is always the return type.
-    (target) => {
-        return character.Health < 50;
-    }
-Character Creation:
-    Create two characters, Warrior and Healer, without using inheritance.
-    Each character should have a PrimaryAction property, an Action that holds a lambda representing a role-specific ability (e.g., attack for Warrior, heal for Healer).
-
-Prioritize Actions Based on Health:
-
-    Characters with health below 50 should attack first.
-    The healer character should prioritize healing the character with the lowest health.
-
-Invoke Actions Dynamically:
-
-    Use each lambda to dynamically call specific actions based on character role and health status.
-
-Expected Skill Outcome
-
-    Learn to use Actions and lambdas to encapsulate unique abilities, simulating polymorphism without inheritance.
-    Execute lambdas based on criteria such as character health and role, illustrating how lambdas create flexible and reusable code.
-*/
