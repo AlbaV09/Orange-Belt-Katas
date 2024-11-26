@@ -13,14 +13,12 @@ public class Character
         Role = role;
         PrimaryAction = primaryAction;
     }
-
     public void Heal(int amount, Character warrior)
     {
         warrior.Health += amount;
         Console.WriteLine($"{Name} heals {warrior.Name} for {amount} health! Current Health: {warrior.Health}");
     }
 }
-
 public class Program
 {
     public void Players()
@@ -72,7 +70,6 @@ public class Program
                 Console.WriteLine();
             });
     }
-
     public static void Main(string[] args)
     {
         Program program = new Program();

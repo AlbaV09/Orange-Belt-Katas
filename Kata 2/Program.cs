@@ -15,13 +15,11 @@ public class Character
     {
         target.Health -= damage;
         Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage");
-        
+
         target.HealthChanged?.Invoke(target.Name, target.Health);
-        
     }
     public event Action<string, int> HealthChanged;
 }
-
 public class Program
 {
     public void Players()
@@ -43,7 +41,6 @@ public class Program
     {
         Console.WriteLine($"[Event] {name}'s health changed to {newHealth}.");
     }
-
     public static void Main(string[] args)
     {
         new Program().Players();
